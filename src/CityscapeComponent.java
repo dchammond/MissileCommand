@@ -17,7 +17,7 @@ public class CityscapeComponent extends JComponent{
 		this.numOfBases = numOfBases;
 		this.groundColor = groundColor;
 		this.width = width;
-		this.height = heigth;
+		this.height = height;
 	}
 
 	public void paintComponent(Graphics g) {
