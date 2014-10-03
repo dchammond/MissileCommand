@@ -8,8 +8,8 @@ import java.awt.Color;
 
 public class Cityscape {
 
-	private int numOfBases;
-	private Color groundColor;
+	private static int numOfBases;
+	private static Color groundColor;
 	private static int width;
 	private static int height;
 
