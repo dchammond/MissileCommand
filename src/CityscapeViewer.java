@@ -24,7 +24,7 @@ public class CityscapeViewer {
 		frame.setTitle("Missile Command");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		CityscapeComponent component = new CityscapeComponent();
+		CityscapeComponent component = new CityscapeComponent(numOfBases, groundColor);
 
 		frame.add(component);
 
