@@ -22,9 +22,9 @@ public class CityscapeViewer {
 		frame.add(component);
 
 		frame.setVisible(true);
-
+/*
 		while (true) {
 			component.repaint();
-		}
+		}*/
 	}
 }
