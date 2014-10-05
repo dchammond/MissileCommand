@@ -58,6 +58,10 @@ public class PassiveBase {
 	}
 
 	public static Arc2D.Double[] makeCities() {
+		// City dimensions are in a rect that is the same width as a base but half as tall
+		// City positions are multiplied to match the base they rest upon
+		// ANGLE is -180.0 because this draws a hemisphere
+		// Arc2D.CHORD allows the hemisphere's bottom to be a straight line
 		Arc2D.Double[] listOfCities = {
 		   new Arc2D.Double(1.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
 		   new Arc2D.Double(2.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
