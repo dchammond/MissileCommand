@@ -11,7 +11,7 @@ public class CityscapeViewer {
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 800;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame();
 
 		frame.setSize(WIDTH, HEIGHT);
@@ -30,9 +30,10 @@ public class CityscapeViewer {
 
 		frame.getContentPane().setBackground(Color.BLACK); // Sets background to black
 
-/*
+
 		while (true) {
 			component.repaint();
-		}*/
+			Thread.sleep(17); // Approximately 60fps
+		}
 	}
 }
