@@ -24,7 +24,7 @@ public class PassiveBase {
 		// Start base creation
 		this.baseColor = baseColor;
 		this.basePosX = (this.screenWidth / 9.0); // Each base is a 9th of the screen across
-		this.basePosY = (this.screenHeight / 6.0); // Each base is a 6th of the screnn in height
+		this.basePosY = (this.screenHeight / 6.0); // Each base is a 6th of the screen in height
 		this.baseWidth = this.basePosX; // This is just for better name clarification
 		this.baseHeight = this.basePosY; // This is just for better name clarification
 	}
