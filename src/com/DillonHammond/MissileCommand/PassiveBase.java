@@ -77,11 +77,11 @@ public class PassiveBase {
 				// This skips drawing lines on the middle turret
 				i++;
 			}
-			allLines.add(new Line2D.Double((i*baseWidth) + 1.0*linePosXTurret, linePosYCity, (i*baseWidth) + 1.0*linePosXTurret, screenHeight));
-			allLines.add(new Line2D.Double((i*baseWidth) + 2.0*linePosXTurret, linePosYCity, (i*baseWidth) + 2.0*linePosXTurret, screenHeight));
-			allLines.add(new Line2D.Double((i*baseWidth) + 3.0*linePosXTurret, linePosYCity, (i*baseWidth) + 3.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 1.0*linePosXCity, linePosYCity, (i*baseWidth) + 1.0*linePosXCity, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 2.0*linePosXCity, linePosYCity, (i*baseWidth) + 2.0*linePosXCity, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 3.0*linePosXCity, linePosYCity, (i*baseWidth) + 3.0*linePosXCity, screenHeight));
 		}
-		
+
 		return allLines;
 	}
 
