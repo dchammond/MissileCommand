@@ -18,6 +18,7 @@ public class PassiveBase {
 	private static double baseHeight;
 	private static double screenWidth;
 	private static double screenHeight;
+	private static Color lineColor;
 
 	public PassiveBase(Color baseColor, int screenWidth, int screenHeight) {
 		// Get screen values
@@ -29,6 +30,8 @@ public class PassiveBase {
 		this.basePosY = (this.screenHeight / 6.0); // Each base is a 6th of the screen in height
 		this.baseWidth = this.basePosX; // This is just for better name clarification
 		this.baseHeight = this.basePosY; // This is just for better name clarification
+		// Line attributes
+		this.lineColor = new Color(0, 0, 0);
 	}
 
 	public static ArrayList<Rectangle2D.Double> makeBases() {
@@ -49,21 +52,28 @@ public class PassiveBase {
 		return listOfBases;
 	}
 
-	public static Line2D.Double[] makeLineDetails() {
+	public static ArrayList<Line2D.Double> makeLineDetails() {
 		// Draws lines that will become windows in another function
-		Line2D.Double[] allLines = {
+		ArrayList<Line2D.Double> allLines = new ArrayList<Line2D.Double>();
+		allLines.add(new Line2D.Double(0.0, screenHeight - (baseHeight+50.0)/2.0, screenWidth, screenHeight - (baseHeight+50.0)/2.0));
 
-		};
 		return allLines;
 	}
 
 	public static void draw(Graphics2D g2) {
+		// Draw the bases
 		ArrayList<Rectangle2D.Double> allTheBases = makeBases();
-
 		g2.setColor(baseColor);
 		for (int i = 0; i < 9; i++) {
 			g2.draw(allTheBases.get(i));
 			g2.fill(allTheBases.get(i));
+		}
+		// Draw the lines for windows
+		ArrayList<Line2D.Double> allLines = makeLineDetails();
+		g2.setColor(lineColor);
+		for (int i = 0; i < 1; i++) {
+			g2.draw(allLines.get(i));
+			g2.fill(allLines.get(i));
 		}
 	}
 }
