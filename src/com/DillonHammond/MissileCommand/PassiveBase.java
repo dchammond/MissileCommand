@@ -30,13 +30,14 @@ public class PassiveBase {
 	public static Rectangle2D.Double[] makeBases() {
 		// Rectangle dimensions are always 1/9 X 1/6 of the screen size
 		// Rectangle locations are as follows: edge-->|T|x|x|x|T|x|x|x|T|<--edge (x is rect being drawn below, T is turret)
-		Rectangle2D.Double[] listOfBases = (new Rectangle2D.Double(1.0*basePosX, 5.0*basePosY, baseWidth, baseHeight),
-											new Rectangle2D.Double(2.0*basePosX, 5.0*basePosY, baseWidth, baseHeight),
-											new Rectangle2D.Double(3.0*basePosX, 5.0*basePosY, baseWidth, baseHeight),
-											new Rectangle2D.Double(5.0*basePosX, 5.0*basePosY, baseWidth, baseHeight),
-											new Rectangle2D.Double(6.0*basePosX, 5.0*basePosY, baseWidth, baseHeight),
-											new Rectangle2D.Double(7.0*basePosX, 5.0*basePosY, baseWidth, baseHeight)
-											);
+		Rectangle2D.Double[] listOfBases = {
+		   new Rectangle2D.Double(1.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(2.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(3.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(5.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(6.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(7.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight)
+		};
 		return listOfBases;
 	}
 
