@@ -58,6 +58,7 @@ public class PassiveBase {
 		allLines.add(new Line2D.Double(0.0, screenHeight - (baseHeight+50.0)/2.0, screenWidth, screenHeight - (baseHeight+50.0)/2.0));
 		allLines.add(new Line2D.Double(0.0, (screenHeight - baseHeight), screenWidth, (screenHeight - baseHeight)));
 		allLines.add(new Line2D.Double((baseWidth/3.0), screenHeight - (baseHeight+50.0), (baseWidth/3.0), screenHeight));
+		allLines.add(new Line2D.Double(2.0*(baseWidth/3.0), screenHeight - (baseHeight+50.0), 2.0*(baseWidth/3.0), screenHeight));
 
 		return allLines;
 	}
@@ -66,14 +67,14 @@ public class PassiveBase {
 		// Draw the bases
 		ArrayList<Rectangle2D.Double> allTheBases = makeBases();
 		g2.setColor(baseColor);
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < allTheBases.size(); i++) {
 			g2.draw(allTheBases.get(i));
 			g2.fill(allTheBases.get(i));
 		}
 		// Draw the lines for windows
 		ArrayList<Line2D.Double> allLines = makeLineDetails();
 		g2.setColor(lineColor);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < allLines.size(); i++) {
 			g2.draw(allLines.get(i));
 			g2.fill(allLines.get(i));
 		}
