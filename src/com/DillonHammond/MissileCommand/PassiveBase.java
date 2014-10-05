@@ -1,7 +1,6 @@
 package com.DillonHammond.MissileCommand;
 
 import java.awt.geom.Rectangle2D;
-import java.awt.geom.Rectangle2D.Double;
 import java.awt.Color;
 
 /**
@@ -26,6 +25,6 @@ public class PassiveBase {
 	}
 
 	public static Rectangle2D.Double[] makeBases() {
-		
+
 	}
 }
