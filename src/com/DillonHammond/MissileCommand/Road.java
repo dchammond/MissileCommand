@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class Road {
 
-	private static int screenWidth;
-	private static int screenHeight;
+	private static double screenWidth;
+	private static double screenHeight;
 	private static Color roadColor;
 	private static Color dividerColor;
 	private static Rectangle2D.Double road;
@@ -28,8 +28,8 @@ public class Road {
 
 	public Road(int screenWidth, int screenHeight) {
 		// Set screen values
-		this.screenWidth = screenWidth;
-		this.screenHeight = screenHeight;
+		this.screenWidth = (double) screenWidth;
+		this.screenHeight = (double) screenHeight;
 		// Set up colors
 		this.roadColor = new Color(110, 110, 110);
 		this.dividerColor = new Color(255, 250, 10);

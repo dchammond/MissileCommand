@@ -17,11 +17,11 @@ public class Cityscape {
 	public Cityscape(int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.passiveBaseColor = new Color(26, 11, 240);
+		this.passiveBaseColor = new Color(255, 250, 10);
 		this.cityColor = new Color(24, 255, 0);
 		this.passiveBases = new PassiveBase(this.passiveBaseColor, this.width, this.height);
 		this.passiveCities = new PassiveCity(this.cityColor, this.width, this.height);
-		this.turret = new ActiveTurret(Color.YELLOW, this.width, this.height);
+		this.turret = new ActiveTurret(Color.BLUE, this.width, this.height);
 		this.road = new Road(this.width, this.height);
 	}
 

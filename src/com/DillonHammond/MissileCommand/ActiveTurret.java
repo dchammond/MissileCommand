@@ -14,7 +14,6 @@ public class ActiveTurret {
 	private static double screenHeight;
 	private static double turretHeight;
 	private static double turretWidth;
-//	private static Trapezoid turret;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
