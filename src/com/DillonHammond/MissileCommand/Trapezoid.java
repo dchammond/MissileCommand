@@ -28,7 +28,7 @@ public class Trapezoid {
 	}
 
 	public static void makeTrap(Graphics2D g2) {
-		g2.setColor(Color.YELLOW);
+		g2.setColor(lineColor);
 		for (int i = 0; i < numOfLines; i++) {
 			double x1 = lineStartPosX + ((i*(trapBaseWidth/3.0))/50.0);
 			double x2 = trapBaseWidth - ((i*(trapBaseWidth/3.0))/50.0);
