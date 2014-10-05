@@ -12,6 +12,7 @@ public class Cityscape {
 	private static Color cityColor;
 	private static PassiveCity passiveCities;
 	private static ActiveTurret turret;
+	private static Road road;
 
 	public Cityscape(int width, int height) {
 		this.width = width;
@@ -21,13 +22,14 @@ public class Cityscape {
 		this.passiveBases = new PassiveBase(this.passiveBaseColor, this.width, this.height);
 		this.passiveCities = new PassiveCity(this.cityColor, this.width, this.height);
 		this.turret = new ActiveTurret(Color.YELLOW, this.width, this.height);
-
+		this.road = new Road(this.width, this.height);
 	}
 
 	public void draw(Graphics2D g2) {
 		passiveBases.draw(g2);
 		passiveCities.draw(g2);
 		turret.draw(g2);
+		road.draw(g2);
 	}
 
 }
