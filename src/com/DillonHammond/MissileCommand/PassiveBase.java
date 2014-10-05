@@ -56,6 +56,7 @@ public class PassiveBase {
 		// Draws lines that will become windows in another function
 		ArrayList<Line2D.Double> allLines = new ArrayList<Line2D.Double>();
 		allLines.add(new Line2D.Double(0.0, screenHeight - (baseHeight+50.0)/2.0, screenWidth, screenHeight - (baseHeight+50.0)/2.0));
+		allLines.add(new Line2D.Double(0.0, (screenHeight - baseHeight), screenWidth, (screenHeight - baseHeight)));
 
 		return allLines;
 	}
@@ -71,7 +72,7 @@ public class PassiveBase {
 		// Draw the lines for windows
 		ArrayList<Line2D.Double> allLines = makeLineDetails();
 		g2.setColor(lineColor);
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 2; i++) {
 			g2.draw(allLines.get(i));
 			g2.fill(allLines.get(i));
 		}
