@@ -11,20 +11,23 @@ public class Cityscape {
 	private static PassiveBase passiveBases;
 	private static Color cityColor;
 	private static PassiveCity passiveCities;
+	private static ActiveTurret turret;
 
 	public Cityscape(int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.passiveBaseColor = new Color(26, 11, 240);
-		this.cityColor = new Color(255, 0, 0);
+		this.cityColor = new Color(24, 255, 0);
 		this.passiveBases = new PassiveBase(this.passiveBaseColor, this.width, this.height);
 		this.passiveCities = new PassiveCity(this.cityColor, this.width, this.height);
+		this.turret = new ActiveTurret(Color.YELLOW, this.width, this.height);
 
 	}
 
 	public void draw(Graphics2D g2) {
 		passiveBases.draw(g2);
 		passiveCities.draw(g2);
+		turret.draw(g2);
 	}
 
 }

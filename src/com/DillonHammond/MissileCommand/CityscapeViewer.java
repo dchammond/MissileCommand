@@ -1,6 +1,7 @@
 package com.DillonHammond.MissileCommand;
 
 import javax.swing.JFrame;
+import java.awt.Color;
 
 /**
  * Created by Dillon on 10/1/14.
@@ -17,11 +18,18 @@ public class CityscapeViewer {
 		frame.setTitle("Missile Command");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
 		CityscapeComponent component = new CityscapeComponent(WIDTH, HEIGHT);
+
 
 		frame.add(component);
 
+
+
 		frame.setVisible(true);
+
+		frame.getContentPane().setBackground(Color.BLACK); // Sets background to black
+
 /*
 		while (true) {
 			component.repaint();

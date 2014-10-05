@@ -24,7 +24,7 @@ public class PassiveBase {
 		// Start base creation
 		this.baseColor = baseColor;
 		this.basePosX = (this.screenWidth / 9.0); // Each base is a 9th of the screen across
-		this.basePosY = (this.screenHeight / 6.0); // Each base is a 6th of the screnn in height
+		this.basePosY = (this.screenHeight / 6.0); // Each base is a 6th of the screen in height
 		this.baseWidth = this.basePosX; // This is just for better name clarification
 		this.baseHeight = this.basePosY; // This is just for better name clarification
 	}
@@ -32,14 +32,17 @@ public class PassiveBase {
 	public static Rectangle2D.Double[] makeBases() {
 		// Rectangle dimensions are always 1/9 X 1/6 of the screen size
 		// Rectangles are placed at 5/6 of the screen's total height
-		// Rectangle locations are as follows: edge-->|T|x|x|x|T|x|x|x|T|<--edge (x is rect being drawn below, T is turret)
+		// Rectangle locations are as follows: edge-->|T|x|x|x|T|x|x|x|T|<--edge (x is rect being drawn below, T is turret being drawn)
 		Rectangle2D.Double[] listOfBases = {
+		   new Rectangle2D.Double(0.0 * basePosX, (5.0 * basePosY) - 50.0, baseWidth, (baseHeight + 50.0)),
 		   new Rectangle2D.Double(1.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
 		   new Rectangle2D.Double(2.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
 		   new Rectangle2D.Double(3.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(4.0 * basePosX, (5.0 * basePosY) - 50.0, baseWidth, (baseHeight + 50.0)),
 		   new Rectangle2D.Double(5.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
 		   new Rectangle2D.Double(6.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
-		   new Rectangle2D.Double(7.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight)
+		   new Rectangle2D.Double(7.0 * basePosX, 5.0 * basePosY, baseWidth, baseHeight),
+		   new Rectangle2D.Double(8.0 * basePosX, (5.0 * basePosY) - 50.0, baseWidth, (baseHeight + 50.0)),
 		};
 		return listOfBases;
 	}
@@ -48,7 +51,7 @@ public class PassiveBase {
 		Rectangle2D.Double[] allTheBases = makeBases();
 
 		g2.setColor(baseColor);
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 9; i++) {
 			g2.draw(allTheBases[i]);
 			g2.fill(allTheBases[i]);
 		}
