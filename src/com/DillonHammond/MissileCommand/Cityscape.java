@@ -21,7 +21,7 @@ public class Cityscape {
 		this.cityColor = new Color(24, 255, 0);
 		this.passiveBases = new PassiveBase(this.passiveBaseColor, this.width, this.height);
 		this.passiveCities = new PassiveCity(this.cityColor, this.width, this.height);
-		this.turret = new ActiveTurret(Color.ORANGE, this.width, this.height);
+		this.turret = new ActiveTurret(Color.BLUE, this.width, this.height);
 		this.road = new Road(this.width, this.height);
 	}
 
