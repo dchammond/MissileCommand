@@ -25,6 +25,13 @@ public class PassiveBase {
 	}
 
 	public static Rectangle2D.Double[] makeBases() {
-
+		Rectangle2D.Double[] listOfBases = (new Rectangle2D.Double(100d, 500d, 100d, 100d),
+											new Rectangle2D.Double(200d, 500d, 100d, 100d),
+											new Rectangle2D.Double(300d, 500d, 100d, 100d),
+											new Rectangle2D.Double(500d, 500d, 100d, 100d),
+											new Rectangle2D.Double(600d, 500d, 100d, 100d),
+											new Rectangle2D.Double(700d, 500d, 100d, 100d)
+											);
+		return listOfBases;
 	}
 }
