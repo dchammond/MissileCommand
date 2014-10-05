@@ -16,7 +16,7 @@ public class Cityscape {
 		this.width = width;
 		this.height = height;
 		this.passiveBaseColor = new Color(26, 11, 240);
-		this.cityColor = new Color(255, 0, 0);
+		this.cityColor = new Color(24, 255, 0);
 		this.passiveBases = new PassiveBase(this.passiveBaseColor, this.width, this.height);
 		this.passiveCities = new PassiveCity(this.cityColor, this.width, this.height);
 
