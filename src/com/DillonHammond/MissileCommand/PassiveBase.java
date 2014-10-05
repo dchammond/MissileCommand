@@ -22,7 +22,7 @@ public class PassiveBase {
 	private static double cityPosY;
 	private static double cityWidth;
 	private static double cityHeight;
-	private static final double ANGLE = 180.0;
+	private static final double ANGLE = -180.0;
 
 	public PassiveBase(Color baseColor, Color cityColor, int screenWidth, int screenHeight) {
 		// Get screen values
@@ -37,8 +37,8 @@ public class PassiveBase {
 		// Start city creation
 		this.cityColor = cityColor;
 		this.cityPosX = this.basePosX; // X coord of a city's rect frame is same as its base
-		this.cityPosY = this.basePosY - (this.basePosY/2.0); // Top of a city is above the base by half of the base's height
-		this.cityWidth = this.cityPosX; // For better readability
+		this.cityPosY = (5.0*this.basePosY) - 35.0; // Top of a city is above the base by 35px (this is due to the screen menu bar taking up some pixels)
+		this.cityWidth = this.baseWidth; // For better readability
 		this.cityHeight = (this.basePosY/2.0); // Height of a city is half that of the base
 	}
 
@@ -57,13 +57,32 @@ public class PassiveBase {
 		return listOfBases;
 	}
 
+	public static Arc2D.Double[] makeCities() {
+		Arc2D.Double[] listOfCities = {
+		   new Arc2D.Double(1.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
+		   new Arc2D.Double(2.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
+		   new Arc2D.Double(3.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
+		   new Arc2D.Double(5.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
+		   new Arc2D.Double(6.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
+		   new Arc2D.Double(7.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD)
+		};
+		return listOfCities;
+	}
+
 	public static void draw(Graphics2D g2) {
 		Rectangle2D.Double[] allTheBases = makeBases();
+		Arc2D.Double[] allTheCities = makeCities();
 
 		g2.setColor(baseColor);
 		for (int i = 0; i < 6; i++) {
 			g2.draw(allTheBases[i]);
 			g2.fill(allTheBases[i]);
+		}
+
+		g2.setColor(cityColor);
+		for (int i = 0; i < 6; i++) {
+			g2.draw(allTheCities[i]);
+			g2.fill(allTheCities[i]);
 		}
 	}
 }

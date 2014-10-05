@@ -7,8 +7,8 @@ import javax.swing.JFrame;
  */
 public class CityscapeViewer {
 
-	private static final int WIDTH = 900;
-	private static final int HEIGHT = 600;
+	private static final int WIDTH = 1000;
+	private static final int HEIGHT = 800;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
