@@ -19,6 +19,10 @@ public class PassiveBase {
 	private static double screenWidth;
 	private static double screenHeight;
 	private static Color lineColor;
+	private static double linePosXTurret;
+	private static double lineStartPosYTurret;
+	private static double linePosXCity;
+	private static double linePosYCity;
 
 	public PassiveBase(Color baseColor, int screenWidth, int screenHeight) {
 		// Get screen values
@@ -32,6 +36,10 @@ public class PassiveBase {
 		this.baseHeight = this.basePosY; // This is just for better name clarification
 		// Line attributes
 		this.lineColor = new Color(0, 0, 0);
+		this.linePosXTurret = this.baseWidth / 3.0;
+		this.lineStartPosYTurret = this.screenHeight - (this.baseHeight+50.0);
+		this.linePosXCity = this.linePosXTurret;
+		this.linePosYCity = this.screenHeight - this.baseHeight;
 	}
 
 	public static ArrayList<Rectangle2D.Double> makeBases() {
@@ -57,9 +65,23 @@ public class PassiveBase {
 		ArrayList<Line2D.Double> allLines = new ArrayList<Line2D.Double>();
 		allLines.add(new Line2D.Double(0.0, screenHeight - (baseHeight+50.0)/2.0, screenWidth, screenHeight - (baseHeight+50.0)/2.0));
 		allLines.add(new Line2D.Double(0.0, (screenHeight - baseHeight), screenWidth, (screenHeight - baseHeight)));
-		allLines.add(new Line2D.Double((baseWidth/3.0), screenHeight - (baseHeight+50.0), (baseWidth/3.0), screenHeight));
-		allLines.add(new Line2D.Double(2.0*(baseWidth/3.0), screenHeight - (baseHeight+50.0), 2.0*(baseWidth/3.0), screenHeight));
-
+		for (int i = 0; i < 9; i += 4) {
+			// Draws 4 lines on a turret then skips to the next turret and draws 4 lines...
+			allLines.add(new Line2D.Double((i*baseWidth) + 0.0*linePosXTurret, lineStartPosYTurret, (i*baseWidth) + 0.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 1.0*linePosXTurret, lineStartPosYTurret, (i*baseWidth) + 1.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 2.0*linePosXTurret, lineStartPosYTurret, (i*baseWidth) + 2.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 3.0*linePosXTurret, lineStartPosYTurret, (i*baseWidth) + 3.0*linePosXTurret, screenHeight));
+		}
+		for (int i = 1; i < 9; i++) {
+			if (i == 4) {
+				// This skips drawing lines on the middle turret
+				i++;
+			}
+			allLines.add(new Line2D.Double((i*baseWidth) + 1.0*linePosXTurret, linePosYCity, (i*baseWidth) + 1.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 2.0*linePosXTurret, linePosYCity, (i*baseWidth) + 2.0*linePosXTurret, screenHeight));
+			allLines.add(new Line2D.Double((i*baseWidth) + 3.0*linePosXTurret, linePosYCity, (i*baseWidth) + 3.0*linePosXTurret, screenHeight));
+		}
+		
 		return allLines;
 	}
 
