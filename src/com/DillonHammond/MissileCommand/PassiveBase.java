@@ -23,8 +23,8 @@ public class PassiveBase {
 		this.screenHeight = (double) screenHeight;
 		this.basePosX = (this.screenWidth / 9.0);
 		this.basePosY = (this.screenHeight / 6.0);
-		this.baseWidth = this.basePosX;
-		this.baseHeight = this.basePosY;
+		this.baseWidth = this.basePosX; // This is just for better name clarification
+		this.baseHeight = this.basePosY; // This is just for better name clarification
 	}
 
 	public static Rectangle2D.Double[] makeBases() {
@@ -42,6 +42,12 @@ public class PassiveBase {
 	}
 
 	public static void draw(Graphics2D g2) {
+		Rectangle2D.Double[] allTheBases = makeBases();
 
+		g2.setColor(baseColor);
+		for (int i = 0; i < 6; i++) {
+			g2.draw(allTheBases[i]);
+			g2.fill(allTheBases[i]);
+		}
 	}
 }
