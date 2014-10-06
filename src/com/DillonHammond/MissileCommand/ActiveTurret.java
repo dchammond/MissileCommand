@@ -1,10 +1,9 @@
 package com.DillonHammond.MissileCommand;
 
 import java.awt.geom.Ellipse2D;
-import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Color;
 import java.util.ArrayList;
-import java.awt.MouseInfo;
 
 /**
  * Created by Dillon on 10/4/14.
