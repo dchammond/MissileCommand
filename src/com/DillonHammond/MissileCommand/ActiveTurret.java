@@ -103,41 +103,45 @@ public class ActiveTurret {
 	public static void activateTurret() {
 		boolean laserActivated = false;
 		mouseLocation = CityscapeViewer.mouseCoord;
-		if (y != 0 && mouseLocation.getX() < (screenWidth / 3.0)) {
-			switchLaserState(0);
-			laserActivated = laserActivated(1);
-			y = 0;
-			if (laserActivated) {
-				switchLaserState(1);
-			}
-			laserActivated = laserActivated(2);
-			if (laserActivated) {
-				switchLaserState(2);
-			}
-		} else if (y != 1 && mouseLocation.getX() >= (screenWidth / 3.0) && mouseLocation.getX() < 2.0 * (screenWidth / 3.0)) {
-			switchLaserState(1);
-			laserActivated = laserActivated(0);
-			y = 1;
-			if (laserActivated) {
+		try {
+			if (y != 0 && mouseLocation.getX() < (screenWidth / 3.0)) {
 				switchLaserState(0);
-			}
-			laserActivated = laserActivated(2);
-			if (laserActivated) {
-				switchLaserState(2);
-			}
-		} else if (y != 2 && mouseLocation.getX() >= 2.0 * (screenWidth / 3.0)) {
-			switchLaserState(2);
-			laserActivated = laserActivated(0);
-			y = 2;
-			if (laserActivated) {
-				switchLaserState(0);
-			}
-			laserActivated = laserActivated(1);
-			if (laserActivated) {
+				laserActivated = laserActivated(1);
+				y = 0;
+				if (laserActivated) {
+					switchLaserState(1);
+				}
+				laserActivated = laserActivated(2);
+				if (laserActivated) {
+					switchLaserState(2);
+				}
+			} else if (y != 1 && mouseLocation.getX() >= (screenWidth / 3.0) && mouseLocation.getX() < 2.0 * (screenWidth / 3.0)) {
 				switchLaserState(1);
+				laserActivated = laserActivated(0);
+				y = 1;
+				if (laserActivated) {
+					switchLaserState(0);
+				}
+				laserActivated = laserActivated(2);
+				if (laserActivated) {
+					switchLaserState(2);
+				}
+			} else if (y != 2 && mouseLocation.getX() >= 2.0 * (screenWidth / 3.0)) {
+				switchLaserState(2);
+				laserActivated = laserActivated(0);
+				y = 2;
+				if (laserActivated) {
+					switchLaserState(0);
+				}
+				laserActivated = laserActivated(1);
+				if (laserActivated) {
+					switchLaserState(1);
+				}
 			}
+		} catch (NullPointerException e) {
+			// Ignores NullPointerException from mouse being outside the JFrame
 		}
-//		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
+		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
 
 	public static void draw(Graphics2D g2) {
