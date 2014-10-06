@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.awt.MouseInfo;
 
 /**
  * Created by Dillon on 10/4/14.
@@ -17,6 +18,9 @@ public class ActiveTurret {
 	private static double turretWidth;
 	private static Color laserOriginColor;
 	private static ArrayList<Ellipse2D.Double> laserOrigins = new ArrayList<Ellipse2D.Double>();
+	private static boolean turret0Active = false;
+	private static boolean turret1Active = false;
+	private static boolean turret2Active = false;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -33,6 +37,64 @@ public class ActiveTurret {
 	public static void setLaserOrigins() {
 		for (int i = 0; i < 9; i += 4) {
 			laserOrigins.add(new Ellipse2D.Double((i*turretWidth) + 120.0/3.0, 550, 95.0/3.0, 95.0/3.0));
+		}
+	}
+
+	public static boolean laserActivated(int turretNum) {
+		boolean active = false;
+		switch (turretNum) {
+			case 0:
+				if (!turret0Active) {
+					active = false;
+				} else if(turret0Active) {
+					active = true;
+				}
+				break;
+			case 1:
+				if (!turret1Active) {
+					active = false;
+				} else if (turret1Active) {
+					active = true;
+				}
+				break;
+			case 2:
+				if (!turret2Active) {
+					active = false;
+				} else if (turret2Active) {
+					active = true;
+				}
+				break;
+			default:
+				active = false;
+		}
+
+		return active;
+	}
+
+	public static void switchLaserState(int turretNum) {
+		switch (turretNum) {
+			case 0:
+				if (!turret0Active) {
+					turret0Active = true;
+				} else if (turret0Active) {
+					turret0Active = false;
+				}
+				break;
+			case 1:
+				if (!turret1Active) {
+					turret1Active = true;
+				} else if (turret1Active) {
+					turret1Active = false;
+				}
+				break;
+			case 2:
+				if (!turret2Active) {
+					turret2Active = true;
+				} else if (turret2Active) {
+					turret2Active = false;
+				}
+				break;
+			default:
 		}
 	}
 
