@@ -27,6 +27,8 @@ public class ActiveTurret {
 	private static Laser laser;
 	private static Color laserColor;
 	private static Line2D.Double laserMade;
+	private static boolean shootLaser = false;
+	public static boolean clicked = false;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -110,7 +112,6 @@ public class ActiveTurret {
 	public static void activateTurret() {
 		boolean laserActivate = false;
 		mouseLocation = CityscapeViewer.mouseCoord;
-		boolean clicked = CityscapeViewer.mouseClicked;
 		double[] whereClicked = {0,0};
 		try {
 			if (y != 0 && mouseLocation.getX() < (screenWidth / 3.0)) {
@@ -152,6 +153,13 @@ public class ActiveTurret {
 				whereClicked[1] = mouseLocation.getY();
 				if (laserActivated(0)) {
 					laserMade = laser.fireLaser(0, whereClicked);
+					shootLaser = true;
+				} else if (laserActivated(1)) {
+					laserMade = laser.fireLaser(1, whereClicked);
+					shootLaser = true;
+				} else if (laserActivated(2)) {
+					laserMade = laser.fireLaser(2, whereClicked);
+					shootLaser = true;
 				}
 			}
 		} catch (NullPointerException e) {
@@ -174,8 +182,10 @@ public class ActiveTurret {
 			g2.draw(laserOrigins.get(i));
 			g2.fill(laserOrigins.get(i));
 		}
-		g2.setColor(laserColor);
-		g2.draw(laserMade);
-		g2.fill(laserMade);
+		if (shootLaser) {
+			g2.setColor(laserColor);
+			g2.draw(laserMade);
+			g2.fill(laserMade);
+		}
 	}
 }
