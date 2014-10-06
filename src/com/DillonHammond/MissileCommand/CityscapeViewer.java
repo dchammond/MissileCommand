@@ -35,7 +35,6 @@ public class CityscapeViewer {
 
 		frame.getContentPane().setBackground(Color.BLACK); // Sets background to black
 
-
 		while (true) {
 			component.repaint();
 			Thread.sleep(17); // Approximately 60fps
