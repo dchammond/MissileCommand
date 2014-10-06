@@ -22,6 +22,7 @@ public class ActiveTurret {
 	private static boolean turret1Active = false;
 	private static boolean turret2Active = false;
 	private static Point mouseLocation;
+	private static int y = -1;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -102,9 +103,10 @@ public class ActiveTurret {
 	public static void activateTurret() {
 		boolean laserActivated = false;
 		mouseLocation = CityscapeViewer.mouseCoord;
-		if (mouseLocation.getX() < (screenWidth/3.0)) {
+		if (y != 0 && mouseLocation.getX() < (screenWidth / 3.0)) {
 			switchLaserState(0);
 			laserActivated = laserActivated(1);
+			y = 0;
 			if (laserActivated) {
 				switchLaserState(1);
 			}
@@ -112,9 +114,10 @@ public class ActiveTurret {
 			if (laserActivated) {
 				switchLaserState(2);
 			}
-		} else if (mouseLocation.getX() >= (screenWidth/3.0) && mouseLocation.getX() < 2.0*(screenWidth/3.0)) {
+		} else if (y != 1 && mouseLocation.getX() >= (screenWidth / 3.0) && mouseLocation.getX() < 2.0 * (screenWidth / 3.0)) {
 			switchLaserState(1);
 			laserActivated = laserActivated(0);
+			y = 1;
 			if (laserActivated) {
 				switchLaserState(0);
 			}
@@ -122,9 +125,10 @@ public class ActiveTurret {
 			if (laserActivated) {
 				switchLaserState(2);
 			}
-		} else if (mouseLocation.getX() >= 2.0*(screenWidth/3.0)) {
+		} else if (y != 2 && mouseLocation.getX() >= 2.0 * (screenWidth / 3.0)) {
 			switchLaserState(2);
 			laserActivated = laserActivated(0);
+			y = 2;
 			if (laserActivated) {
 				switchLaserState(0);
 			}
