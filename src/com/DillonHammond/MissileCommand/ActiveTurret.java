@@ -17,7 +17,7 @@ public class ActiveTurret {
 	private static double turretHeight;
 	private static double turretWidth;
 	private static Color laserOriginColor;
-	private static ArrayList<Ellipse2D.Double> laserOrigins = new ArrayList<Ellipse2D.Double>();
+	public static ArrayList<Ellipse2D.Double> laserOrigins = new ArrayList<Ellipse2D.Double>();
 	private static boolean turret0Active = false;
 	private static boolean turret1Active = false;
 	private static boolean turret2Active = false;
@@ -141,7 +141,7 @@ public class ActiveTurret {
 		} catch (NullPointerException e) {
 			// Ignores NullPointerException from mouse being outside the JFrame
 		}
-		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
+//		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
 
 	public static void draw(Graphics2D g2) {
