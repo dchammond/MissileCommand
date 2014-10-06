@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.awt.Point;
+import java.awt.geom.Line2D;
 
 /**
  * Created by Dillon on 10/4/14.
@@ -23,6 +24,9 @@ public class ActiveTurret {
 	private static boolean turret2Active = false;
 	private static Point mouseLocation;
 	private static int y = -1;
+	private static Laser laser;
+	private static Color laserColor;
+	private static Line2D.Double laserMade;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -34,12 +38,15 @@ public class ActiveTurret {
 		this.turretWidth = (this.screenWidth/9.0); // The turret will be as wide as the base
 		// Start Laser Origin Creation
 		this.laserOriginColor = new Color(255, 255, 255, 0); // Draws clear circles
+		// Start Laser Creation
+		this.laserColor = new Color(255, 0, 0);
 	}
 
 	public static void setLaserOrigins() {
 		for (int i = 0; i < 9; i += 4) {
 			laserOrigins.add(new Ellipse2D.Double((i*turretWidth) + 120.0/3.0, 550, 95.0/3.0, 95.0/3.0));
 		}
+		laser = new Laser(laserColor, laserOrigins, screenWidth, screenHeight);
 	}
 
 	public static boolean laserActivated(int turretNum) {
@@ -144,6 +151,7 @@ public class ActiveTurret {
 				whereClicked[0] = mouseLocation.getX();
 				whereClicked[1] = mouseLocation.getY();
 				if (laserActivated(0)) {
+					laserMade = laser.fireLaser(0, whereClicked);
 				}
 			}
 		} catch (NullPointerException e) {
@@ -166,5 +174,8 @@ public class ActiveTurret {
 			g2.draw(laserOrigins.get(i));
 			g2.fill(laserOrigins.get(i));
 		}
+		g2.setColor(laserColor);
+		g2.draw(laserMade);
+		g2.fill(laserMade);
 	}
 }

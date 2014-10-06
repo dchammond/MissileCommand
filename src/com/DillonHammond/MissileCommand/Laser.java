@@ -28,14 +28,13 @@ public class Laser {
 		this.laserOrigins = laserOrigins;
 	}
 
-	public static void fireLaser(int turretNum, Graphics2D g2, double[] whereMouseClicked) {
+	public static Line2D.Double fireLaser(int turretNum, double[] whereMouseClicked) {
 		double topLeftX = ActiveTurret.laserOrigins.get(turretNum).getX();
 		double topLeftY = ActiveTurret.laserOrigins.get(turretNum).getY();
 		double width = ActiveTurret.laserOrigins.get(turretNum).getWidth();
 		double height = ActiveTurret.laserOrigins.get(turretNum).getHeight();
 		double[] center = {topLeftX + width + height, topLeftY + width + height};
 		laser = new Line2D.Double(center[0], center[1], whereMouseClicked[0], whereMouseClicked[1]);
-		// The end point of the laser line will be the location of the mouse when clicked
-		// This information comes from ActiveTurret
+		return laser;
 	}
 }
