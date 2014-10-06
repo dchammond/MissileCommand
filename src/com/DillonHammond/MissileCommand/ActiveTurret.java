@@ -137,7 +137,7 @@ public class ActiveTurret {
 				switchLaserState(1);
 			}
 		}
-		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
+//		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
 
 	public static void draw(Graphics2D g2) {
