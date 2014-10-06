@@ -21,20 +21,20 @@ public class Laser {
 	private static Line2D.Double laser;
 	private static ArrayList<Ellipse2D.Double> laserOrigins = new ArrayList<Ellipse2D.Double>();
 
-	public Laser(Color laserColor, ArrayList<Ellipse2D.Double> laserOrigins,double screenWidth, double screenHeight) {
+	public Laser(Color laserColor, ArrayList<Ellipse2D.Double> laserOrigins, double screenWidth, double screenHeight) {
 		this.laserColor = laserColor;
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
 		this.laserOrigins = laserOrigins;
 	}
 
-	public static void fireLaser(int turretNum, Graphics2D g2) {
+	public static void fireLaser(int turretNum, Graphics2D g2, double[] whereMouseClicked) {
 		double topLeftX = ActiveTurret.laserOrigins.get(turretNum).getX();
 		double topLeftY = ActiveTurret.laserOrigins.get(turretNum).getY();
 		double width = ActiveTurret.laserOrigins.get(turretNum).getWidth();
 		double height = ActiveTurret.laserOrigins.get(turretNum).getHeight();
 		double[] center = {topLeftX + width + height, topLeftY + width + height};
-//		laser = new Line2D.Double(center[0], center[1], );
+		laser = new Line2D.Double(center[0], center[1], whereMouseClicked[0], whereMouseClicked[1]);
 		// The end point of the laser line will be the location of the mouse when clicked
 		// This information comes from ActiveTurret
 	}

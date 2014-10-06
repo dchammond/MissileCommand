@@ -101,45 +101,54 @@ public class ActiveTurret {
 	}
 
 	public static void activateTurret() {
-		boolean laserActivated = false;
+		boolean laserActivate = false;
 		mouseLocation = CityscapeViewer.mouseCoord;
+		boolean clicked = CityscapeViewer.mouseClicked;
+		double[] whereClicked = {0,0};
 		try {
 			if (y != 0 && mouseLocation.getX() < (screenWidth / 3.0)) {
 				switchLaserState(0);
-				laserActivated = laserActivated(1);
+				laserActivate = laserActivated(1);
 				y = 0;
-				if (laserActivated) {
+				if (laserActivate) {
 					switchLaserState(1);
 				}
-				laserActivated = laserActivated(2);
-				if (laserActivated) {
+				laserActivate = laserActivated(2);
+				if (laserActivate) {
 					switchLaserState(2);
 				}
 			} else if (y != 1 && mouseLocation.getX() >= (screenWidth / 3.0) && mouseLocation.getX() < 2.0 * (screenWidth / 3.0)) {
 				switchLaserState(1);
-				laserActivated = laserActivated(0);
+				laserActivate = laserActivated(0);
 				y = 1;
-				if (laserActivated) {
+				if (laserActivate) {
 					switchLaserState(0);
 				}
-				laserActivated = laserActivated(2);
-				if (laserActivated) {
+				laserActivate = laserActivated(2);
+				if (laserActivate) {
 					switchLaserState(2);
 				}
 			} else if (y != 2 && mouseLocation.getX() >= 2.0 * (screenWidth / 3.0)) {
 				switchLaserState(2);
-				laserActivated = laserActivated(0);
+				laserActivate = laserActivated(0);
 				y = 2;
-				if (laserActivated) {
+				if (laserActivate) {
 					switchLaserState(0);
 				}
-				laserActivated = laserActivated(1);
-				if (laserActivated) {
+				laserActivate = laserActivated(1);
+				if (laserActivate) {
 					switchLaserState(1);
+				}
+			}
+			if (clicked) {
+				whereClicked[0] = mouseLocation.getX();
+				whereClicked[1] = mouseLocation.getY();
+				if (laserActivated(0)) {
 				}
 			}
 		} catch (NullPointerException e) {
 			// Ignores NullPointerException from mouse being outside the JFrame
+			// Does not affect performance
 		}
 //		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
