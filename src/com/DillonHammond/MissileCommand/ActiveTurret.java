@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.awt.Point;
 
 /**
  * Created by Dillon on 10/4/14.
@@ -20,6 +21,7 @@ public class ActiveTurret {
 	private static boolean turret0Active = false;
 	private static boolean turret1Active = false;
 	private static boolean turret2Active = false;
+	private static Point mouseLocation;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -95,6 +97,43 @@ public class ActiveTurret {
 				break;
 			default:
 		}
+	}
+
+	public static void activateTurret() {
+		boolean laserActivated = false;
+		mouseLocation = CityscapeViewer.mouseCoord;
+		if (mouseLocation.getX() < (screenWidth/3.0)) {
+			switchLaserState(0);
+			laserActivated = laserActivated(1);
+			if (laserActivated) {
+				switchLaserState(1);
+			}
+			laserActivated = laserActivated(2);
+			if (laserActivated) {
+				switchLaserState(2);
+			}
+		} else if (mouseLocation.getX() >= (screenWidth/3.0) && mouseLocation.getX() < 2.0*(screenWidth/3.0)) {
+			switchLaserState(1);
+			laserActivated = laserActivated(0);
+			if (laserActivated) {
+				switchLaserState(0);
+			}
+			laserActivated = laserActivated(2);
+			if (laserActivated) {
+				switchLaserState(2);
+			}
+		} else if (mouseLocation.getX() >= 2.0*(screenWidth/3.0)) {
+			switchLaserState(2);
+			laserActivated = laserActivated(0);
+			if (laserActivated) {
+				switchLaserState(0);
+			}
+			laserActivated = laserActivated(1);
+			if (laserActivated) {
+				switchLaserState(1);
+			}
+		}
+		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
 
 	public static void draw(Graphics2D g2) {

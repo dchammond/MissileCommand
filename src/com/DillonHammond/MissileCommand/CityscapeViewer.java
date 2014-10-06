@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.SwingUtilities;
 import java.awt.MouseInfo;
+import java.awt.Point;
 
 /**
  * Created by Dillon on 10/1/14.
@@ -13,7 +14,7 @@ public class CityscapeViewer {
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 800;
 	private static CityscapeComponent component;
-	public static java.awt.Point xy;
+	public static Point mouseCoord;
 
 	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame();
@@ -50,8 +51,9 @@ public class CityscapeViewer {
 
 	public static void setTurretActive() {
 		java.awt.PointerInfo mouseLocation = mouseLocation();
-		xy = mouseLocation.getLocation();
-		SwingUtilities.convertPointFromScreen(xy, component);
+		mouseCoord = mouseLocation.getLocation();
+		SwingUtilities.convertPointFromScreen(mouseCoord, component);
+		// Converts mouse position to coordinates relative to the window
 	}
 
 }
