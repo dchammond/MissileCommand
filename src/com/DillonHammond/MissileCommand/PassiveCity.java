@@ -3,6 +3,7 @@ package com.DillonHammond.MissileCommand;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
+import java.util.ArrayList;
 
 /**
  * Created by Dillon on 10/4/14.
@@ -17,6 +18,7 @@ public class PassiveCity {
 	private static double cityWidth;
 	private static double cityHeight;
 	private static final double ANGLE = -180.0;
+	public static ArrayList<Arc2D.Double> listOfCities = new ArrayList<Arc2D.Double>();
 
 	public PassiveCity(Color cityColor, int screenWidth, int screenHeight) {
 		// Get screen values
@@ -30,29 +32,28 @@ public class PassiveCity {
 		this.cityHeight = ((this.screenHeight/6.0)/2.0); // Height of a city is half that of the base
 	}
 
-	public static Arc2D.Double[] makeCities() {
+	public static ArrayList<Arc2D.Double> makeCities() {
 		// City dimensions are in a rect that is the same width as a base but half as tall
 		// City positions are multiplied to match the base they rest upon
 		// ANGLE is -180.0 because this draws a hemisphere
 		// Arc2D.CHORD allows the hemisphere's bottom to be a straight line
-		Arc2D.Double[] listOfCities = {
-		   new Arc2D.Double(1.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
-		   new Arc2D.Double(2.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
-		   new Arc2D.Double(3.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
-		   new Arc2D.Double(5.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
-		   new Arc2D.Double(6.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD),
-		   new Arc2D.Double(7.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD)
-		};
+		listOfCities.add(new Arc2D.Double(1.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+		listOfCities.add(new Arc2D.Double(2.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+		listOfCities.add(new Arc2D.Double(3.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+		listOfCities.add(new Arc2D.Double(5.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+		listOfCities.add(new Arc2D.Double(6.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+		listOfCities.add(new Arc2D.Double(7.0*cityPosX, cityPosY, cityWidth, cityHeight, ANGLE, ANGLE, Arc2D.CHORD));
+
 		return listOfCities;
 	}
 
 	public static void draw(Graphics2D g2) {
-		Arc2D.Double[] allCities = makeCities();
+		ArrayList<Arc2D.Double> allCities = makeCities();
 
 		g2.setColor(cityColor);
 		for (int i = 0; i < 6; i++) {
-			g2.draw(allCities[i]);
-			g2.fill(allCities[i]);
+			g2.draw(allCities.get(i));
+			g2.fill(allCities.get(i));
 		}
 	}
 }
