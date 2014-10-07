@@ -170,7 +170,6 @@ public class ActiveTurret {
 			// Ignores NullPointerException from mouse being outside the JFrame
 			// Does not affect performance
 		}
-//		System.out.println(laserActivated(0) + " " + laserActivated(1) + " " + laserActivated(2));
 	}
 
 	public static void draw(Graphics2D g2) {

@@ -36,9 +36,9 @@ public class Laser {
 	public static Ellipse2D.Double makeExpolsion(double[] laserEnd) {
 		double circleCenterX = laserEnd[0];
 		double circleCenterY = laserEnd[1];
-		double circleRadius = 25.0;
+		double circleRadius = 50.0;
 		double[] expolosionRectCoord = {circleCenterX - circleRadius, circleCenterY - circleRadius};
-		Ellipse2D.Double explosion = new Ellipse2D.Double(expolosionRectCoord[0], expolosionRectCoord[1], circleRadius, circleRadius);
+		Ellipse2D.Double explosion = new Ellipse2D.Double(expolosionRectCoord[0], expolosionRectCoord[1], 2.0*circleRadius, 2.0*circleRadius);
 
 		return explosion;
 	}
