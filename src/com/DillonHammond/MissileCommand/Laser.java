@@ -32,8 +32,7 @@ public class Laser {
 		double topLeftX = ActiveTurret.laserOrigins.get(turretNum).getX();
 		double topLeftY = ActiveTurret.laserOrigins.get(turretNum).getY();
 		double width = ActiveTurret.laserOrigins.get(turretNum).getWidth();
-		double height = ActiveTurret.laserOrigins.get(turretNum).getHeight();
-		double[] center = {topLeftX + width + height, topLeftY + width + height};
+		double[] center = {topLeftX + width/2.0, topLeftY};
 		laser = new Line2D.Double(center[0], center[1], whereMouseClicked[0], whereMouseClicked[1]);
 		return laser;
 	}
