@@ -29,6 +29,8 @@ public class ActiveTurret {
 	private static Line2D.Double laserMade;
 	private static boolean shootLaser = false;
 	public static boolean clicked = false;
+	private static Color explosionColor;
+	private static Ellipse2D.Double explosion;
 
 	public ActiveTurret(Color turretColor, double screenWidth, double screenHeight) {
 		// Get screen values
@@ -42,6 +44,7 @@ public class ActiveTurret {
 		this.laserOriginColor = new Color(255, 255, 255, 0); // Draws clear circles
 		// Start Laser Creation
 		this.laserColor = new Color(255, 0, 0);
+		this.explosionColor = new Color(255, 0, 0);
 	}
 
 	public static void setLaserOrigins() {
@@ -161,6 +164,7 @@ public class ActiveTurret {
 					laserMade = laser.fireLaser(2, whereClicked);
 					shootLaser = true;
 				}
+				explosion = laser.makeExpolsion(whereClicked);
 			}
 		} catch (NullPointerException e) {
 			// Ignores NullPointerException from mouse being outside the JFrame
@@ -186,6 +190,9 @@ public class ActiveTurret {
 			g2.setColor(laserColor);
 			g2.draw(laserMade);
 			g2.fill(laserMade);
+			g2.setColor(explosionColor);
+			g2.draw(explosion);
+			g2.fill(explosion);
 		}
 	}
 }

@@ -13,10 +13,6 @@ public class Laser {
 	private static Color laserColor;
 	private static double screenWidth;
 	private static double screenHeight;
-	private static double x1;
-	private static double x2;
-	private static double y1;
-	private static double y2;
 	private static Line2D.Double laser;
 	private static ArrayList<Ellipse2D.Double> laserOrigins = new ArrayList<Ellipse2D.Double>();
 
@@ -33,6 +29,17 @@ public class Laser {
 		double width = ActiveTurret.laserOrigins.get(turretNum).getWidth();
 		double[] center = {topLeftX + width/2.0, topLeftY};
 		laser = new Line2D.Double(center[0], center[1], whereMouseClicked[0], whereMouseClicked[1]);
+
 		return laser;
+	}
+
+	public static Ellipse2D.Double makeExpolsion(double[] laserEnd) {
+		double circleCenterX = laserEnd[0];
+		double circleCenterY = laserEnd[1];
+		double circleRadius = 25.0;
+		double[] expolosionRectCoord = {circleCenterX - circleRadius, circleCenterY - circleRadius};
+		Ellipse2D.Double explosion = new Ellipse2D.Double(expolosionRectCoord[0], expolosionRectCoord[1], circleRadius, circleRadius);
+
+		return explosion;
 	}
 }
