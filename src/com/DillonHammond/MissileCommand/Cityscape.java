@@ -30,6 +30,7 @@ public class Cityscape {
 		passiveCities.draw(g2);
 		turret.draw(g2);
 		road.draw(g2);
+		turret.activateTurret();
 	}
 
 }
