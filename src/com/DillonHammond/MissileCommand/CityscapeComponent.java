@@ -31,7 +31,6 @@ public class CityscapeComponent extends JComponent implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("here");
 		mouseClicked = true;
 		CityscapeViewer.setTurretActive();
 		mouseClicked = false;
