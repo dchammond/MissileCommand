@@ -15,6 +15,7 @@ public class Cityscape {
 	private static Road road;
 	private static Color bombColor;
 	private static Bomb bomb;
+	private static int x = 0;
 
 	public Cityscape(int width, int height) {
 		this.width = width;
@@ -35,6 +36,10 @@ public class Cityscape {
 		turret.draw(g2);
 		road.draw(g2);
 		turret.activateTurret();
+		if (x==0) {
+			bomb.makeTimer();
+			x++;
+		}
 		bomb.draw(g2);
 	}
 

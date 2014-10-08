@@ -6,6 +6,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Created by Dillon on 10/7/14.
  */
@@ -26,6 +30,7 @@ public class Bomb {
 	private static double finalEndY;
 	private static double distX;
 	private static double distY;
+	private static Timer timer;
 
 	public Bomb(Color bombColor, double screenWidth, double screenHeight) {
 		this.bombColor = bombColor;
@@ -63,6 +68,17 @@ public class Bomb {
 		for (double i = distY; i > 0; i--) {
 			endY.add(finalEndY - i);
 		}
+	}
+
+	public static void makeTimer() {
+		timer = new Timer(5000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Hello");
+			}
+		});
+		timer.setInitialDelay(0);
+		timer.start();
 	}
 
 	public static void draw(Graphics2D g2) {
