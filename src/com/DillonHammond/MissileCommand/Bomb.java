@@ -29,12 +29,15 @@ public class Bomb {
 	}
 
 	public static ArrayList<Line2D.Double> makeBombs() {
-		random = generator.nextInt(10);
+		random = generator.nextInt(15);
 		randomTurret = generator.nextInt(6);
-		double[] origin = {validBombCreation[0]/random, validBombCreation[1]/random};
-		double[] end = {PassiveCity.listOfCities.get(randomTurret).getX(), PassiveCity.listOfCities.get(randomTurret).getY()};
-		if (random >= 3) {
-			bombs.add(new Line2D.Double(validBombCreation[0]/random, validBombCreation[1]/random, end[0], end[1]));
+		double[] origin = {2.0*validBombCreation[0]/random, validBombCreation[1]/random};
+		if (2.0*validBombCreation[0]/random >= screenWidth) {
+			origin[0] = screenWidth - 10.0;
+		}
+		double[] end = {PassiveCity.listOfCities.get(randomTurret).getX() + screenWidth/18.0, PassiveCity.listOfCities.get(randomTurret).getY()};
+		if (random >= 0) {
+			bombs.add(new Line2D.Double(origin[0], origin[1], end[0], end[1]));
 		}
 
 		return bombs;
