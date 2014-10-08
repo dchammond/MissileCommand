@@ -37,7 +37,6 @@ public class CityscapeViewer {
 			component.repaint();
 			Thread.sleep(17); // Approximately 60fps
 			mouseLocation();
-//			setTurretActive();
 		}
 	}
 

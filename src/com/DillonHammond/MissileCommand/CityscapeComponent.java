@@ -26,7 +26,9 @@ public class CityscapeComponent extends JComponent implements MouseListener{
 
 		Cityscape cityscape = new Cityscape(width, height);
 
+
 		cityscape.draw(g2);
+
 	}
 
 	@Override
