@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class Stars {
 
-	private static final Color STAR_COLOR = new Color(255, 255, 255);
+	private static ArrayList<Color> starColor = new ArrayList<Color>();
 	private static double screenWidth;
 	private static double screenHeight;
 	private static ArrayList<Ellipse2D.Double> stars = new ArrayList<Ellipse2D.Double>();
@@ -27,7 +27,11 @@ public class Stars {
 		for (int i = 0; i < numOfStars; i++) {
 			int xCoord = generator.nextInt((int) (screenWidth - 50.0));
 			int yCoord = generator.nextInt((int) (screenHeight / 3.0));
+			int r = generator.nextInt(256);
+			int g = generator.nextInt(256);
+			int b = generator.nextInt(256);
 			stars.add(new Ellipse2D.Double(xCoord, yCoord, 10, 10));
+			starColor.add(new Color(r, g, b));
 		}
 	}
 
@@ -35,8 +39,8 @@ public class Stars {
 		int numOfStars = 20;
 		makeStars(numOfStars);
 
-		g2.setColor(STAR_COLOR);
 		for (int i = 0; i < numOfStars; i++) {
+			g2.setColor(starColor.get(i));
 			g2.draw(stars.get(i));
 			g2.fill(stars.get(i));
 		}
